@@ -66,6 +66,14 @@
         while(index2<row['length']){    //数组里面的数组 来做一个创建div的循环，每个数组的length不一样，所以每次创建的div个数也不一样
           kbd = document.createElement('kbd')  //让文档创建kbd标签，创建数量放到kbd这个变量里。
           kbd.textContent = row[index2] //从数组里面的数组里取出对应的值放到kbd这个div里
+          
+          buttonEditor = document.createElement('button') //创建button  放在buttonEditor这个变量里
+          buttonEditor.textContent = '编辑' //将这些button里面的填充内容设置为"编辑"
+          buttonEditor.onclick = function(onKeyContainer){ //button被点击的时候就执行这个代码
+            onKeyContainer.target
+          }
+          kbd.appendChild(buttonEditor) //将创建的button作为kbd的子级
+
           divNum.appendChild(kbd)       // 将kbd 作为子级放到main下的divNum个对应的div里面(main里面根据index 0 1 2 创建了 divNum个div，每个div对应一个index数组，根据数组里面的数组创建的kbd标签作为子元素放到divNum个div里面)
           index2++
       }
@@ -75,19 +83,11 @@
     document.onkeypress = function(onKeyContainer){   //将用户的按键信息收集起来，放到一个我自己命名为"onKeyContainer" 的容器里面。
       console.log('您按下了键盘上的:')
       console.log(onKeyContainer['key'] + " 键")      //"onKeyContainer"其实就是一个hash，我们这里打印出容器里面用户按的那个键。
-      key = onKeyContainer['key']   //将 "onKeyContainer" 容器里面的数值放到 key 这个变量里
-
+      key = onKeyContainer['key']   // 拿到 "onKeyContainer" 容器里用户按得那个键
+      website = hash[key]  // 将键对应的hash数组里面的网址 放到一个website的变量里。
+      // location.href = 'http://' + website //将当前地址变成 组合
+      window.open('http://'+ website, '_blank')  //注意大小写！首字母是小写w，将当前按键在hash中对应的网址 在新的标签页中打开。   
     }
-
-    
-
- 
-
-
-
-
-
-
 
   </script>
 </body>

@@ -10,21 +10,28 @@ a{
 
 kbd {
   border-radius: 4px;
-  background-image: -moz-linear-gradient( 90deg, rgb(38,38,38) 0%, rgb(71,71,71) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgb(38,38,38) 0%, rgb(71,71,71) 100%);
-  background-image: -ms-linear-gradient( 90deg, rgb(38,38,38) 0%, rgb(71,71,71) 100%);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45),inset 0px 0px 1px 0px rgba(255, 255, 255, 0.004);
-  left: 798px;
-  top: 211px;
-  width: 56px;
-  height: 54px;
-  z-index: 131;
+  width: 4em;
+  height: 4em;
   display: inline-block;   /*转化为行内块元素才可以设置宽高 */
   text-transform: uppercase;
+  position: relative;
 }
-main{
+
+kbd > button{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: none;   /*默认不出现 */
   
+}  
+
+kbd:hover > button{
+  display: inline-block; /*按钮为行内块元素 */
 }
+ 
+
 
 #main{
   font-family:tahoma, arial, 'Hiragino Sans GB', 宋体, sans-serif,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -47,7 +54,3 @@ sans-serif;
 #main > div:nth-child(3) {/*:nth-child 之间不能存在空格   main里面的第三个div  */
   margin-left:2em;
 } 
-
-{
-
-}
