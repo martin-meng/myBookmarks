@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>我的导航</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+  <script src="./js/main.js"></script>
+</head> 
+<body>
+  <header></header>
+  <main>
+    <div class="weapper" id="main"></div>
+  </main>
+  <footer></footer>
+  <script>
+  
+
+    var keys = {
+    0: { 0:'q', 1:'w', 2:'e', 3:'r', 4:'t', 5:'y', 6:'u', 7:'i', 8:'o', 9:'p',length:10},
+    1: { 0:'a', 1:'s', 2:'d', 3:'f', 4:'g', 5:'h', 6:'j', 7:'k', 8:'l', length:9},
+    2: { 0:'z', 1:'x', 2:'c', 3:'v', 4:'b', 5:'n', 6:'m', length:7},
+    length:3
+
+  }
+    var hash = {
+      q: 'qq.com',
+      w: 'weibo.com',
+      e: 'ele.me', 
+      r: 'renren.com',
+      t: 'twitter.com',
+      y: 'youtube.com',
+      u: 'uc.com',
+      i: 'iqiyi.com',
+      o: 'opera.com',
+      p: undefined,
+      a: 'amazon.cn',
+      s: 'sohu.com',
+      d: 'devopen.club',
+      f: 'facebook.com',
+      g: 'google.com',
+      h: 'hexo.io',
+      j: 'jianshu.com',
+      k: 'kugou.com',
+      l: 'lanhuapp.com',
+      z: 'zhihu.com',
+      x: 'xiedaimala.com',
+      c: 'codepen.io',
+      v: 'visualstudio.com',
+      b: 'bubkoo.com',
+      n: 'nodebb-cn.org',
+      m: 'map.google.com',
+    }
+
+
+    index = 0
+      while (index < keys['length']){ //用keys这个hash的length来做一个创建div的循环 index 0 1 2 ,所以length是3 ,总共循环了三次
+
+        divNum = document.createElement('div') //让文档创建div， 创建数量放到divNum这个变量里。
+        main.appendChild(divNum) // 将这些数量(divNum)的div 作为子级放到id为main的里面
+        row = keys[index] // 0 1 2 这三个数组
+        
+        
+        index2 = 0
+        while(index2<row['length']){    //数组里面的数组 来做一个创建div的循环，每个数组的length不一样，所以每次创建的div个数也不一样
+          kbd = document.createElement('kbd')  //让文档创建kbd标签，创建数量放到kbd这个变量里。
+          kbd.textContent = row[index2] //从数组里面的数组里取出对应的值放到kbd这个div里
+          divNum.appendChild(kbd)       // 将kbd 作为子级放到main下的divNum个对应的div里面(main里面根据index 0 1 2 创建了 divNum个div，每个div对应一个index数组，根据数组里面的数组创建的kbd标签作为子元素放到divNum个div里面)
+          index2++
+      }
+      index++
+    }
+
+    document.onkeypress = function(onKeyContainer){   //将用户的按键信息收集起来，放到一个我自己命名为"onKeyContainer" 的容器里面。
+      console.log('您按下了键盘上的:')
+      console.log(onKeyContainer['key'] + " 键")      //"onKeyContainer"其实就是一个hash，我们这里打印出容器里面用户按的那个键。
+      key = onKeyContainer['key']   //将 "onKeyContainer" 容器里面的数值放到 key 这个变量里
+
+    }
+
+    
+
+ 
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
