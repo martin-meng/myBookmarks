@@ -1,56 +1,35 @@
-*{
-  margin: 0;  padding: 0;
-}
+*{ margin: 0;  padding: 0;}
+a{ text-decoration: none;}
+kbd{width:4em; height: 4em; display: inline-block; text-transform: uppercase; position: relative; } 
+kbd > button{position: absolute; right: 0; bottom: 0; display: none; }
+kbd:hover > button{ display: inline-block; /*按钮为行内块元素 */ }
+
+body{background:url(../img/keyboard.png); }
+main{text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh; }
+button{ display: inline-block; width: 28px; /* 宽度 */ height: 18px; /* 高度 */ border-width: 0px; /* 边框宽度 */ border-radius: 2px; /* 边框半径 */ background: #1E90FF; /* 背景颜色 */ cursor: pointer; /* 鼠标移入按钮范围时出现手势 */ outline: none; /* 不显示轮廓线 */ color: white; /* 字体颜色 */ }
+button:hover { /* 鼠标移入按钮范围时改变颜色 */ background: #5599FF; }
 
 
-a{
-  text-decoration: none;
-}
+#main{display: inline-block;; }
+#main> div:nth-child(2){margin-left: -22px; }
+#main> div:nth-child(3){margin-left: -80px; }
+.wrapper{ background: rgba(56, 27, 3, 0.15); 
+  padding: 20px 0;        
+  border-radius: 10px;}
 
-
-kbd {
-  border-radius: 4px;
+.key { width: 50px; height: 40px; border-radius: 4px; border: 1px solid #373737; color: #C5C5C5; border-radius: 6px; 
   background-image: -webkit-linear-gradient( 90deg, rgb(38,38,38) 0%, rgb(71,71,71) 100%);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45),inset 0px 0px 1px 0px rgba(255, 255, 255, 0.004);
-  width: 4em;
-  height: 4em;
-  display: inline-block;   /*转化为行内块元素才可以设置宽高 */
-  text-transform: uppercase;
+  box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
   position: relative;
-}
-
-kbd > button{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: none;   /*默认不出现 */
-  
+	font-size: 16px; font-family: Helvetica;
+  /*  display: inline-flex; 
+      align-items: center;
+      justify-content: center; 转化为行内块元素才可以设置宽高 */
+  text-transform: uppercase;
 }  
 
-kbd:hover > button{
-  display: inline-block; /*按钮为行内块元素 */
-}
- 
+.row{ margin: 20px; }
+.row .key{ margin: 0 10px; }
+.key img{ width: 16px;height: 16px; position: absolute;left: 0px; bottom: 0px; }
+.key .text{position: absolute; left: 4px; top: 2px; }
 
-
-#main{
-  font-family:tahoma, arial, 'Hiragino Sans GB', 宋体, sans-serif,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-sans-serif;
-    
-  color: #FFF;
-  display: inline-block;
-  width: 800px;
-  height: 300px;
-  background-color: #808080;
-  text-align: center;
-}
-
-
-#main > div:nth-child(2) {/*:nth-child 之间不能存在空格   main里面的第二个div  */
-  margin-left:1em;
-} 
-
-
-#main > div:nth-child(3) {/*:nth-child 之间不能存在空格   main里面的第三个div  */
-  margin-left:2em;
-} 
